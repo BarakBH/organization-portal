@@ -1,0 +1,24 @@
+<div class="header-container">
+  <h1>המועדפים שלי</h1>
+  <mat-icon *ngIf="!showForm" (click)="toggleForm()">add_circle</mat-icon>
+  <mat-icon *ngIf="showForm" (click)="toggleForm()">clear</mat-icon>
+</div>
+
+<div class="add-link-form" *ngIf="showForm">
+  <h3>כאן ניתן לשמור קישורים לדפים או נתיבים של ספריות</h3>
+  <input [(ngModel)]="newLinkName" placeholder="שם">
+  <p>הקלד שם לכתובת</p>
+  <br>
+  <input [(ngModel)]="newLinkUrl" placeholder="קישור">
+  <p>הדבקה או הקלדת קישור לדף אינטרנט או נתיב לספריית רשת</p>
+
+  <button class="clearbutton" (click)="clearFields()">ניקוי תוכן שדות</button>
+  <button (click)="addLink()">הוספה למועדפים</button>
+</div>
+
+<div *ngFor="let link of links">
+  <mat-icon>link</mat-icon>
+  <b><a [href]="link.url" target="_blank">קישור</a></b>
+  |
+  <span>{{ link.name }}</span>
+</div>

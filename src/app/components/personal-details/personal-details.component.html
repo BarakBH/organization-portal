@@ -1,0 +1,79 @@
+<div class="header">
+  <h1>עדכון פרטים אישיים</h1>
+</div>
+
+<div class="links">
+  <a routerLink="/">דף הבית</a> >
+  <b>דף נוכחי </b>
+</div>
+
+<div class=" form-container">
+  <div class="image-container">
+    <img src="../../../assets/images/user-img.jpeg" alt="User">
+  </div>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="text-fields">
+      <span><b>שם פרטי : </b></span>
+      <span>יוסי</span>
+      <br>
+      <b>שם משפחה : </b>
+      <span>כהן</span>
+      <br>
+      <b>שם תצוגה : </b>
+      <input type="text" formControlName="displayName">
+    </div>
+
+    <div class="date-fields">
+      <b>תאריך לידה : </b>
+      <input #datePicker type="date" style="display: none;" (change)="dateChanged($event)">
+      <input type="text" formControlName="year" placeholder="שנה">
+      <div *ngIf="yearErrors">
+        <small *ngIf="yearErrors['min']">שנה צריכה להיות לפחות 1960</small>
+        <small *ngIf="yearErrors['max']">שנה לא יכולה להיות בעתיד</small>
+      </div>
+      <input type="text" formControlName="month" placeholder="חודש">
+      <div *ngIf="monthErrors">
+        <small *ngIf="monthErrors['min']">חודש צריך להיות מעל או שווה ל1</small>
+        <small *ngIf="monthErrors['max']">חודש צריך להיות מתחת או שווה ל12</small>
+      </div>
+      <input type="text" formControlName="day" placeholder="יום">
+      <div *ngIf="dayErrors">
+        <small *ngIf="dayErrors['min']">יום צריך להיות מעל או שווה ל1</small>
+        <small *ngIf="dayErrors['max']">יום צריך להיות מעל או שווה ל31</small>
+      </div>
+      <mat-icon (click)="openDatePicker()">event</mat-icon>
+    </div>
+
+    <div class="text-fields">
+      <b>טלפון נייח : </b>
+      <input type="tel" formControlName="telephone">
+      <br>
+      <b>טלפון נייד : </b>
+      <input type="tel" formControlName="pelephone">
+      <br>
+      <span><b>אגף : </b></span>
+      <span>אגף טכנולוגיות</span>
+      <br>
+      <span><b>חטיבה : </b></span>
+      <span>חטיבת יישומים</span>
+      <br>
+      <span><b>מחלקה : </b></span>
+      <span>ניתוח מערכות</span>
+      <br>
+      <b>תפקיד : </b>
+      <input type="text" formControlName="role">
+    </div>
+
+    <hr>
+
+    <div class="checkbox-fields">
+      <mat-checkbox formControlName="receiveBirthdayNotifications">אני רוצה לקבל ברכות ליום הולדת</mat-checkbox>
+      <mat-checkbox formControlName="showProfilePicture">אני רוצה שתמונתי תוצג בסביבת העבודה הדיגיטלית</mat-checkbox>
+    </div>
+
+    <div class="buttons">
+      <button class="cancel-button" type="button" routerLink="/">ביטול שינויים</button>
+      <button class="save-button" type="submit">שמירת עדכון</button>
+    </div>
+  </form>
+</div>

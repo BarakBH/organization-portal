@@ -1,0 +1,27 @@
+<div class="header-container">
+  <div class="user-info">
+    <img [src]="userImage" alt="Image">
+    <div class="container">
+      <span style="font-weight: bold;">שלום, {{ userName }}</span>
+      <a routerLink="/personal-details">עדכון פרטים אישיים</a>
+    </div>
+  </div>
+
+  <div class="logo">
+    <mat-icon class="larger-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="home"
+      routerLink="/"></mat-icon>
+    <mat-icon class="larger-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="perm_media"
+      routerLink="/phone-book"></mat-icon>
+  </div>
+
+  <div class="search-box">
+    <mat-icon class="search-icon">search</mat-icon>
+    <input type="text" placeholder="חיפוש מידע, דפים, שירותים ועובדים במינהל התכנון">
+  </div>
+
+  <div class="logo2">
+    <mat-icon class="larger-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="view_module"
+      routerLink="/favorites"></mat-icon>
+  </div>
+
+</div>

@@ -1,0 +1,96 @@
+.search-box {
+  position: relative;
+  margin: 2rem;
+  cursor: pointer;
+
+  input {
+    padding: 0.5rem;
+    padding-left: 2rem;
+    width: 20rem;
+    border-radius: 100rem;
+    cursor: pointer;
+  }
+
+  .search-icon {
+    position: absolute;
+    right: 20.7rem;
+    width: 2rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(54, 74, 184);
+    border-radius: 100rem 0 0 100rem;
+    color: white;
+    z-index: 1;
+  }
+}
+
+.employee-card {
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 10px;
+  width: 30%;
+  padding: 10px;
+  display: inline-block;
+  flex-direction: column;
+  vertical-align: top;
+  align-items: center;
+
+  .profile-pic {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+  }
+
+  .email-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5em;
+  }
+
+  .employee-details {
+    margin-top: 10px;
+    text-align: center;
+
+    h2,
+    p {
+      margin: 5px 0;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 5px;
+      text-decoration: none;
+      color: blue;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .expand-details,
+  .collapse-details {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 10px;
+  }
+
+  div[ngIf="employee.showDetails"] {
+    p {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+  }
+}
+
+h1 {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  padding-right: 2rem;
+  background: linear-gradient(to right, blue, lightblue);
+}

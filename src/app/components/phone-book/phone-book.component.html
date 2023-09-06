@@ -1,0 +1,34 @@
+<div class="search-box">
+  <mat-icon class="search-icon">search</mat-icon>
+  <input type="text" placeholder="הקלידו שם לאיתור איש קשר" [(ngModel)]="searchTerm">
+</div>
+
+
+<div *ngFor="let firstLetter of getGroupedEmployeeKeys()">
+  <h1>{{ firstLetter }}</h1>
+  <div *ngFor="let employee of groupedEmployees[firstLetter]" class="employee-card">
+
+
+    <img class="profile-pic" src="../../../assets/images/no-user-image.gif" />
+    <div class="employee-details">
+      <h2>שם: {{ employee.name }}</h2>
+      <p>מקצוע: {{ employee.profession }}</p>
+      <a href="mailto:{{ employee.email }}" class="email-icon-wrapper">
+        <mat-icon class="email-icon">email</mat-icon>
+      </a>
+    </div>
+    <a class="expand-details" (click)="toggleDetails(employee)">
+      <span *ngIf="!employee.showDetails">מידע נוסף</span>
+      <mat-icon *ngIf="!employee.showDetails">expand_more</mat-icon>
+    </a>
+    <div *ngIf="employee.showDetails">
+      <p><mat-icon>phone</mat-icon> {{ employee.phone }}</p>
+      <p><mat-icon>work</mat-icon> {{ employee.role }}</p>
+      <p><mat-icon>location_on</mat-icon> {{ employee.location }}</p>
+    </div>
+    <a class="expand-details" (click)="toggleDetails(employee)">
+      <span *ngIf="employee.showDetails">צמצום תצוגה</span>
+      <mat-icon *ngIf="employee.showDetails">expand_less</mat-icon>
+    </a>
+  </div>
+</div>

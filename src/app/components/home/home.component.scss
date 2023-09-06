@@ -1,0 +1,37 @@
+.home-container {
+  text-align: center;
+}
+
+.welcome-text {
+  color: rgb(58, 58, 207);
+  padding-top: 2rem;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+  width: 250px; // Increased size
+  height: 300px; // Set a fixed height
+  text-align: center;
+  overflow: hidden; // To make sure everything stays within the border
+}
+
+.card img {
+  width: 100%;
+  height: auto; // Maintain aspect ratio
+  max-height: 200px; // Set a maximum height
+  object-fit: cover; // Cover the available space without stretching
+}
+
+.card p {
+  margin: 0.5rem 0;
+}
